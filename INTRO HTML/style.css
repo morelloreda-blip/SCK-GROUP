@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(150deg,#48C9B0,#D5F5E3 );
+    height: 100vh;
+}
+
+.formulario{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 500px;
+    background: white;
+    border-radius: 30px;
+}
+
+.formulario h1{
+    position: relative;
+    text-align:center;
+    top: 27%;
+    padding: 0 0 20px 0;
+    margin: 30px;
+    border-bottom: 1px solid rgb(53, 29, 163); 
+    margin-bottom:5px;  
+}
+
+.imagen1 img{
+    position:relative;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.username {
+    position: relative;
+    margin: 30px 0;
+    top: -7%;
+    text-align: center ;
+    left: 9%;   
+}
+
+.imagen2 img{
+    position: relative;
+    top: 33px;
+    left: 10%;
+}
+
+.username input{
+    position: relative;
+    left: -5%;
+    width: 60%;
+    padding: 0 5px;
+    height: 30px;
+    font-style: oblique;
+    font-size: 16 px;
+    background-color: rgba(160, 160, 201, 0.377);
+    border-bottom:1px, 1px, 1px, 1px solid #b0a8f3;
+    border-radius: 5px;
+    border-color: #b0a8f3;
+}
+
+.username label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.imagen3 img {
+    position: relative;
+    top: -20px;
+    left: 10%;
+
+}
+
+.contraseña {
+    position: relative;
+    margin: 30px 0;
+    top: -16%;
+    text-align: center ;
+    left: 9%;   
+
+}
+
+.contraseña input{
+    position: relative;
+    left: -5%;
+    width: 60%;
+    padding: 0 5px;
+    height: 30px;
+    font-size: 16 px;
+    font-style: oblique;
+    background-color: rgba(160, 160, 201, 0.377);
+    border-bottom:1px, 1px, 1px, 1px solid #b0a8f3;
+    border-radius: 5px;
+    border-color: #b0a8f3;
+}  
+
+.iniciar input{
+    position: relative;
+    left: 35%;
+    width: 30%;
+    top: -64px;
+    border-radius: 5px ;
+    background-color:#48C9B0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+}
+
+.contacto {
+    position:relative;
+    text-align: center;
+    top:-7%;
+    
+}
