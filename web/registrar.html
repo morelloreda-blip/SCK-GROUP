@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Cliente - SCK-GROUP</title>
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h2>Registrar Nuevo Cliente</h2>
+        <p>RF5 - Registro de clientes nuevos</p>
+
+        <!-- Este formulario envia los datos con metodo POST al servlet -->
+        <form action="RegistrarCliente" method="post">
+
+            <label>Numero de identificacion:</label><br>
+            <input type="text" name="identificacion" required><br><br>
+
+            <label>Nombre completo:</label><br>
+            <input type="text" name="nombre" required><br><br>
+
+            <label>Telefono:</label><br>
+            <input type="text" name="telefono"><br><br>
+
+            <label>Ciudad:</label><br>
+            <input type="text" name="ciudad"><br><br>
+
+            <label>Monto del credito:</label><br>
+            <input type="number" name="monto" step="0.01" required><br><br>
+
+            <label>Numero de dias para pagar:</label><br>
+            <input type="number" name="dias" required><br><br>
+
+            <label>Nombre de la ruta:</label><br>
+            <input type="text" name="ruta"><br><br>
+
+            <button type="submit" class="boton">Registrar</button>
+        </form>
+
+        <br>
+        <a href="index.html">Volver al menu</a>
+    </div>
+
+</body>
+</html>

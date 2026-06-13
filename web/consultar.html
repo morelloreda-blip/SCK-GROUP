@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Consultar Cliente - SCK-GROUP</title>
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h2>Consultar Cliente</h2>
+        <p>RF8 - Consultar numero de identificacion</p>
+
+        <!-- Este formulario envia el dato con metodo GET al servlet -->
+        <form action="ConsultarCliente" method="get">
+
+            <label>Numero de identificacion:</label><br>
+            <input type="text" name="identificacion" required><br><br>
+
+            <button type="submit" class="boton">Buscar</button>
+        </form>
+
+        <br>
+        <a href="index.html">Volver al menu</a>
+    </div>
+
+</body>
+</html>
