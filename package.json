@@ -1,0 +1,20 @@
+// Componente Mensaje
+// Muestra mensajes de exito o error al usuario
+// Es reutilizable en toda la aplicacion
+// Autor: Cindy Johana Ramirez
+// RF5, RF8, RF9: varios requerimientos usan este componente
+
+function Mensaje({ texto, tipo }) {
+
+  // Si no hay texto no se muestra nada
+  if (!texto) return null;
+
+  // Segun el tipo se usa una clase diferente (verde para exito, rojo para error)
+  const clase = tipo === 'exito' ? 'mensaje-exito' : 'mensaje-error';
+
+  return (
+    <p className={clase}>{texto}</p>
+  );
+}
+
+export default Mensaje;
