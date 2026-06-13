@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Clientes - SCK-GROUP</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+    <div class="contenedor ancho">
+        <h2>Listado de Clientes</h2>
+        <p>RF3 - Administrar base de datos</p>
+
+        <table>
+            <tr>
+                <th>Identificacion</th>
+                <th>Nombre</th>
+                <th>Ciudad</th>
+                <th>Monto credito</th>
+                <th>Estado</th>
+                <th>Ruta</th>
+                <th>Accion</th>
+            </tr>
+
+            <!-- th:each recorre la lista de clientes enviada por el controlador -->
+            <tr th:each="cliente : ${clientes}">
+                <td th:text="${cliente.numeroIdentificacion}"></td>
+                <td th:text="${cliente.nombreCompleto}"></td>
+                <td th:text="${cliente.ciudad}"></td>
+                <td th:text="${cliente.montoCredito}"></td>
+                <td th:text="${cliente.estadoCredito}"></td>
+                <td th:text="${cliente.nombreRuta}"></td>
+                <td>
+                    <a th:href="@{/eliminar(id=${cliente.idCliente})}">Eliminar</a>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+        <a th:href="@{/}">Volver al menu</a>
+    </div>
+
+</body>
+</html>

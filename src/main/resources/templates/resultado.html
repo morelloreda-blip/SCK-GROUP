@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado - SCK-GROUP</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h2>Resultado</h2>
+
+        <!-- th:text muestra el valor del mensaje enviado por el controlador -->
+        <p class="mensaje" th:text="${mensaje}"></p>
+
+        <br>
+        <a th:href="@{/}">Volver al menu</a>
+    </div>
+
+</body>
+</html>

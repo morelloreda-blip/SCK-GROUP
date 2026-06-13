@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SCK-GROUP</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>SCK-GROUP</h1>
+        <h3>Sistema de Creditos Kronos Group</h3>
+        <p>Desarrollado con Spring Boot</p>
+
+        <p>Seleccione una opcion:</p>
+
+        <a th:href="@{/registrar}"><button class="boton">Registrar nuevo cliente</button></a>
+        <br><br>
+        <a th:href="@{/consultar}"><button class="boton">Consultar cliente</button></a>
+        <br><br>
+        <a th:href="@{/listar}"><button class="boton">Listar todos los clientes</button></a>
+
+    </div>
+
+</body>
+</html>

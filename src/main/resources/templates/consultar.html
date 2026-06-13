@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultar Cliente - SCK-GROUP</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h2>Consultar Cliente</h2>
+        <p>RF8 - Consultar numero de identificacion</p>
+
+        <!-- Formulario que envia el dato por GET -->
+        <form th:action="@{/buscarCliente}" method="get">
+
+            <label>Numero de identificacion:</label><br>
+            <input type="text" name="identificacion" required><br><br>
+
+            <button type="submit" class="boton">Buscar</button>
+        </form>
+
+        <br>
+        <a th:href="@{/}">Volver al menu</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta - SCK-GROUP</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h2>Resultado de la consulta</h2>
+
+        <!-- Se valida si el cliente fue encontrado o no -->
+        <div th:if="${encontrado}">
+            <p><b>Numero de identificacion:</b> <span th:text="${cliente.numeroIdentificacion}"></span></p>
+            <p><b>Nombre:</b> <span th:text="${cliente.nombreCompleto}"></span></p>
+            <p><b>Telefono:</b> <span th:text="${cliente.telefono}"></span></p>
+            <p><b>Ciudad:</b> <span th:text="${cliente.ciudad}"></span></p>
+            <p><b>Monto del credito:</b> $<span th:text="${cliente.montoCredito}"></span></p>
+            <p><b>Estado del credito:</b> <span th:text="${cliente.estadoCredito}"></span></p>
+            <p><b>Ruta:</b> <span th:text="${cliente.nombreRuta}"></span></p>
+        </div>
+
+        <div th:unless="${encontrado}">
+            <p class="mensaje">USUARIO NO ENCONTRADO en la base de datos.</p>
+        </div>
+
+        <br>
+        <a th:href="@{/}">Volver al menu</a>
+    </div>
+
+</body>
+</html>
