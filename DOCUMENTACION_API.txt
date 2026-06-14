@@ -1,0 +1,211 @@
+DOCUMENTACION DE LA API - SCK-GROUP
+=====================================
+Sistema de Creditos Kronos Group
+Autora: Cindy Johana Ramirez
+Ficha: 3070186
+Evidencia: GA7-220501096-AA5-EV03
+
+BASE URL: http://localhost:8081/SCK_GROUP_API_PROYECTO
+
+======================================================
+MODULO: USUARIOS
+======================================================
+
+ENDPOINT 1: INICIO DE SESION
+------------------------------
+URL: /endpoints/usuarios/login.php
+Metodo: POST
+Requerimiento: RF1 - Iniciar sesion
+
+Cuerpo (JSON):
+{
+  "nombre_usuario": "admin",
+  "clave": "admin123"
+}
+
+Respuestas:
+- 200 OK:
+{
+  "mensaje": "Autenticacion satisfactoria.",
+  "nombre_usuario": "admin",
+  "perfil": "ADMINISTRADOR"
+}
+
+- 401 Unauthorized:
+{
+  "mensaje": "Error en la autenticacion. Usuario o clave incorrectos."
+}
+
+- 400 Bad Request:
+{
+  "mensaje": "Error: debe ingresar el nombre de usuario y la clave."
+}
+
+======================================================
+MODULO: CLIENTES
+======================================================
+
+ENDPOINT 2: REGISTRAR CLIENTE
+-------------------------------
+URL: /endpoints/clientes/registrar.php
+Metodo: POST
+Requerimiento: RF5 - Registro clientes nuevos
+
+Cuerpo (JSON):
+{
+  "numeroIdentificacion": "1012345678",
+  "nombreCompleto": "Maria Lopez",
+  "telefono": "3001234567",
+  "ciudad": "Bogota",
+  "montoCredito": 500000,
+  "numeroDias": 20,
+  "nombreRuta": "RUTA_NORTE"
+}
+
+Respuestas:
+- 201 Created:
+{
+  "mensaje": "Cliente registrado correctamente.",
+  "numeroIdentificacion": "1012345678",
+  "nombreCompleto": "Maria Lopez",
+  "estadoCredito": "PENDIENTE"
+}
+
+- 400 Bad Request:
+{
+  "mensaje": "Error: el numero de identificacion ya esta registrado."
+}
+
+- 400 Bad Request:
+{
+  "mensaje": "Error: el monto del credito debe ser mayor a cero."
+}
+
+------------------------------------------------------
+ENDPOINT 3: CONSULTAR CLIENTE
+-------------------------------
+URL: /endpoints/clientes/consultar.php?identificacion=1012345678
+Metodo: GET
+Requerimiento: RF8 - Consultar numero de identificacion
+
+Respuestas:
+- 200 OK:
+{
+  "mensaje": "Cliente encontrado.",
+  "cliente": {
+    "idCliente": 1,
+    "numeroIdentificacion": "1012345678",
+    "nombreCompleto": "Maria Lopez",
+    "telefono": "3001234567",
+    "ciudad": "Bogota",
+    "montoCredito": 500000,
+    "numeroDias": 20,
+    "estadoCredito": "AL_DIA",
+    "nombreRuta": "RUTA_NORTE"
+  }
+}
+
+- 404 Not Found:
+{
+  "mensaje": "USUARIO NO ENCONTRADO en la base de datos."
+}
+
+------------------------------------------------------
+ENDPOINT 4: LISTAR CLIENTES
+-----------------------------
+URL: /endpoints/clientes/listar.php
+URL con filtro: /endpoints/clientes/listar.php?ruta=RUTA_NORTE
+Metodo: GET
+Requerimiento: RF3 - Administrar base de datos
+
+Respuesta:
+- 200 OK:
+{
+  "mensaje": "Consulta exitosa.",
+  "total": 2,
+  "clientes": [...]
+}
+
+------------------------------------------------------
+ENDPOINT 5: ACTUALIZAR ESTADO CLIENTE
+---------------------------------------
+URL: /endpoints/clientes/actualizar.php
+Metodo: PUT
+Requerimiento: RF3 - Administrar base de datos
+
+Cuerpo (JSON):
+{
+  "numeroIdentificacion": "1012345678",
+  "estadoCredito": "AL_DIA"
+}
+
+Estados permitidos: AL_DIA, DEUDOR_MOROSO, PENDIENTE
+
+Respuestas:
+- 200 OK:
+{
+  "mensaje": "Estado del cliente actualizado correctamente.",
+  "numeroIdentificacion": "1012345678",
+  "nuevoEstado": "AL_DIA"
+}
+
+- 404 Not Found:
+{
+  "mensaje": "No se encontro el cliente o el estado ya era el mismo."
+}
+
+======================================================
+MODULO: ABONOS
+======================================================
+
+ENDPOINT 6: REGISTRAR ABONO
+-----------------------------
+URL: /endpoints/abonos/registrar.php
+Metodo: POST
+Requerimiento: RF9 - Gestionar abonos
+
+Cuerpo (JSON):
+{
+  "numeroIdentificacion": "1012345678",
+  "valorAbono": 25000,
+  "fechaAbono": "2024-06-13",
+  "realizoAbono": "SI",
+  "observacion": ""
+}
+
+Respuestas:
+- 201 Created:
+{
+  "mensaje": "Abono registrado correctamente.",
+  "numeroIdentificacion": "1012345678",
+  "valorAbono": 25000,
+  "fechaAbono": "2024-06-13"
+}
+
+- 201 Created (cuando no abona):
+{
+  "mensaje": "Abono registrado. ALERTA: el cliente no realizo el pago del dia.",
+  "numeroIdentificacion": "1012345678",
+  "realizoAbono": "NO"
+}
+
+------------------------------------------------------
+ENDPOINT 7: HISTORIAL DE ABONOS
+---------------------------------
+URL: /endpoints/abonos/historial.php?identificacion=1012345678
+Metodo: GET
+Requerimiento: RF9 - Gestionar abonos
+
+Respuesta:
+- 200 OK:
+{
+  "mensaje": "Historial obtenido correctamente.",
+  "numeroIdentificacion": "1012345678",
+  "totalAbonado": 75000,
+  "totalRegistros": 3,
+  "historial": [...]
+}
+
+======================================================
+Enlace repositorio: https://github.com/morelloreda-blip/SCK-GROUP
+======================================================
